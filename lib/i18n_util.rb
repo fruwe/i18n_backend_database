@@ -53,7 +53,7 @@ class I18nUtil
   end
 
   def self.extract_translations_from_hash(hash, parent_keys = [])
-    hash.inject([]) do |keys, (key, value)|
+    (hash || {}).inject([]) do |keys, (key, value)|
       full_key = parent_keys + [key]
       if value.is_a?(Hash)
         # Nested hash
