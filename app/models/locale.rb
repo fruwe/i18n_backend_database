@@ -1,5 +1,7 @@
 module I18n::Backend
   class Locale < ActiveRecord::Base
+    attr_accessible :code, :name
+
     validates_presence_of :code
     validates_uniqueness_of :code
 

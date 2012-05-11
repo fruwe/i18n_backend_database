@@ -1,5 +1,7 @@
 require 'digest/md5'
 class Translation < ActiveRecord::Base
+  attr_accessible :key, :raw_key, :pluralization_index, :value
+
   belongs_to :locale, :class_name => 'I18n::Backend::Locale'
   validates_presence_of :key
   before_validation :generate_hash_key, :on => :create
